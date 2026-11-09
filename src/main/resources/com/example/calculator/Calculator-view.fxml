@@ -31,6 +31,7 @@
          <children>
             <Button mnemonicParsing="false" onAction="#onCalculate" text="Calculate" />
             <Button layoutX="78.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClear" text="Clear" />
+            <Button layoutX="129.0" layoutY="10.0" mnemonicParsing="false" onAction="#onHistory" text="History" />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="30.0" layoutY="101.0" prefHeight="14.0" prefWidth="200.0" spacing="16.0">

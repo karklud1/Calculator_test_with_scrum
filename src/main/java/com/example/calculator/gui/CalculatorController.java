@@ -8,6 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+
 public class CalculatorController {
 
     @FXML
@@ -41,7 +45,7 @@ public class CalculatorController {
         calculatorLogic.setOperator('/');
     }
 
-    public void onCalculate(ActionEvent actionEvent) {
+    public void onCalculate(ActionEvent actionEvent) throws IOException {
         if (!txtFirstNumber.getText().isEmpty() && !txtSecondNumber.getText().isEmpty()) {
             if (calculatorLogic.getOperator() == '/' && Double.parseDouble(txtSecondNumber.getText()) == 0) {
                 lblResult.setText("Error: Kan ikke dividere med 0");
@@ -57,5 +61,21 @@ public class CalculatorController {
         lblOperator.setText("");
         lblResult.setText("");
         calculatorLogic.setOperator(' ');
+    }
+
+    public void onHistory(ActionEvent actionEvent) throws FileNotFoundException {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(convertHistoryToString());
+        alert.showAndWait();
+    }
+
+    private String convertHistoryToString() throws FileNotFoundException {
+        StringBuilder returnString = new StringBuilder();
+        List<String> data = calculatorLogic.readHistory();
+        int length = Math.min(data.size(), 6);
+        for (int i = data.size()-1; i > data.size() - length; i--) {
+            returnString.append(data.get(i)).append("\n");
+        }
+        return returnString.toString();
     }
 }
