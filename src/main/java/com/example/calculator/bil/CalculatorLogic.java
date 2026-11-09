@@ -35,4 +35,8 @@ public class CalculatorLogic {
         this.operator = operator;
     }
 
+    public char getOperator(){
+        return operator;
+    }
+
 }
