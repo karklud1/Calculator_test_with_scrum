@@ -18,4 +18,8 @@ public class CalculatorLogic {
 
         return result;
     }
+
+    private double minus(double firstNumber, double secondNumber){
+        return firstNumber - secondNumber;
+    }
 }
