@@ -21,21 +21,21 @@
       </HBox>
       <HBox alignment="CENTER" layoutX="30.0" layoutY="56.0" prefHeight="14.0" prefWidth="200.0" spacing="8.0">
          <children>
-            <Button fx:id="btnAdd" mnemonicParsing="false" text="+" />
-            <Button fx:id="btnSubtract" layoutX="84.0" layoutY="10.0" mnemonicParsing="false" text="-" />
-            <Button fx:id="btnMultiply" layoutX="118.0" layoutY="10.0" mnemonicParsing="false" text="*" />
-            <Button fx:id="btnDivide" layoutX="152.0" layoutY="10.0" mnemonicParsing="false" text="/" />
+            <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#onAdd" text="+" />
+            <Button fx:id="btnSubtract" layoutX="84.0" layoutY="10.0" mnemonicParsing="false" onAction="#onSubtract" text="-" />
+            <Button fx:id="btnMultiply" layoutX="118.0" layoutY="10.0" mnemonicParsing="false" onAction="#onMultiply" text="*" />
+            <Button fx:id="btnDivide" layoutX="152.0" layoutY="10.0" mnemonicParsing="false" onAction="#onDivide" text="/" />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="30.0" layoutY="97.0" prefHeight="14.0" prefWidth="200.0" spacing="16.0">
          <children>
-            <Button fx:id="btnCalculator" mnemonicParsing="false" text="Calculate" />
+            <Button fx:id="btnCalculator" mnemonicParsing="false" onAction="#onCalculate" text="Calculate" />
          </children>
       </HBox>
       <HBox alignment="CENTER" layoutX="30.0" layoutY="101.0" prefHeight="14.0" prefWidth="200.0" spacing="16.0">
          <children>
-            <Label fx:id="lblResult" text="Result: " />
-            <Label />
+            <Label text="Result: " />
+            <Label fx:id="lblResult" />
          </children>
       </HBox>
    </children>

@@ -21,7 +21,7 @@ public class CalculatorLogic {
         } else return 0;
     }
 
-    private double calculate(double firstNumber, double secondNumber) {
+    public double calculate(double firstNumber, double secondNumber) {
         return switch (operator) {
             case '+' -> add(firstNumber, secondNumber);
             case '-' -> minus(firstNumber, secondNumber);
@@ -29,6 +29,10 @@ public class CalculatorLogic {
             case '/' -> divide(firstNumber, secondNumber);
             default -> 0;
         };
+    }
+
+    public void setOperator(char operator){
+        this.operator = operator;
     }
 
 }
