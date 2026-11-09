@@ -7,19 +7,28 @@ public class CalculatorLogic {
         return firstNumber + secondNumber;
     }
 
-    private double calculate(double firstNumber, double secondNumber) {
-        double result = 0;
-        switch (operator) {
-            case '+':
-                result = add(firstNumber, secondNumber);
-                break;
-            case '-':
-        }
-
-        return result;
-    }
-
-    private double minus(double firstNumber, double secondNumber){
+    private double minus(double firstNumber, double secondNumber) {
         return firstNumber - secondNumber;
     }
+
+    private double multiply(double firstNumber, double secondNumber) {
+        return firstNumber * secondNumber;
+    }
+
+    private double divide(double firstNumber, double secondNumber) {
+        if (secondNumber != 0) {
+            return firstNumber / secondNumber;
+        } else return 0;
+    }
+
+    private double calculate(double firstNumber, double secondNumber) {
+        return switch (operator) {
+            case '+' -> add(firstNumber, secondNumber);
+            case '-' -> minus(firstNumber, secondNumber);
+            case '*' -> multiply(firstNumber, secondNumber);
+            case '/' -> divide(firstNumber, secondNumber);
+            default -> 0;
+        };
+    }
+
 }
