@@ -3,6 +3,7 @@ package com.example.calculator.gui;
 import com.example.calculator.bil.CalculatorLogic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -10,21 +11,11 @@ import javafx.scene.control.TextField;
 public class CalculatorController {
 
     @FXML
-    private Button btnAdd;
-    @FXML
-    private Button btnSubtract;
-    @FXML
-    private Button btnMultiply;
-    @FXML
-    private Button btnDivide;
-    @FXML
     private TextField txtFirstNumber;
     @FXML
     private Label lblOperator;
     @FXML
     private TextField txtSecondNumber;
-    @FXML
-    private Button btnCalculator;
     @FXML
     private Label lblResult;
 
@@ -51,8 +42,20 @@ public class CalculatorController {
     }
 
     public void onCalculate(ActionEvent actionEvent) {
-        if (!txtFirstNumber.getText().isEmpty() && !txtSecondNumber.getText().isEmpty()){
-            lblResult.setText(calculatorLogic.calculate(Double.parseDouble(txtFirstNumber.getText()), Double.parseDouble(txtSecondNumber.getText())) + "");
+        if (!txtFirstNumber.getText().isEmpty() && !txtSecondNumber.getText().isEmpty()) {
+            if (calculatorLogic.getOperator() == '/' && Double.parseDouble(txtSecondNumber.getText()) == 0) {
+                lblResult.setText("Error: Kan ikke dividere med 0");
+            } else {
+                lblResult.setText(calculatorLogic.calculate(Double.parseDouble(txtFirstNumber.getText()), Double.parseDouble(txtSecondNumber.getText())) + "");
+            }
         }
+    }
+
+    public void onClear(ActionEvent actionEvent) {
+        txtFirstNumber.clear();
+        txtSecondNumber.clear();
+        lblOperator.setText("");
+        lblResult.setText("");
+        calculatorLogic.setOperator(' ');
     }
 }
