@@ -1,4 +1,4 @@
-package com.example.calculator.bil;
+package com.example.calculator.bll;
 
 import com.example.calculator.dal.HistoryDAO;
 

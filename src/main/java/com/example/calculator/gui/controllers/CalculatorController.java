@@ -1,6 +1,6 @@
 package com.example.calculator.gui.controllers;
 
-import com.example.calculator.bil.CalculatorLogic;
+import com.example.calculator.bll.CalculatorLogic;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
